@@ -1,3 +1,27 @@
 controllers:
     resource: ../src/Controller/
     type: attribute
+
+app_index:
+    path: /
+    controller: App\Controller\IndexController::index
+
+app_login: 
+    path: /login
+    controller: App\Controller\LoginController::index
+
+app_register:
+    path: /register
+    controller: App\Controller\RegisterController::index
+
+app_all_users:
+    path: /all/users
+    controller: App\Controller\AllUsersController::index
+
+app_all_groups:
+    path: /all/groups
+    controller: App\Controller\AllGroupsController::index
+
+app_all_groups_and_users:
+    path: /all
+    controller: App\Controller\AllGroupsAndUsersController::index
