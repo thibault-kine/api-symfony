@@ -25,3 +25,11 @@ app_all_groups:
 app_all_groups_and_users:
     path: /all
     controller: App\Controller\AllGroupsAndUsersController::index
+
+app_see_user:
+    path: /see/user/{id}
+    controller: App\Controller\UserDetailsController::index
+
+app_see_group:
+    path: /see/group/{id}
+    controller: App\Controller\GroupDetailsController::index

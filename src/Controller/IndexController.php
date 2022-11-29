@@ -13,6 +13,9 @@ class IndexController extends AbstractController
     {
         return $this->render('index/index.html.twig', [
             'controller_name' => 'IndexController',
+            'login_link' => $this->generateUrl('app_login'),
+            'register_link' => $this->generateUrl('app_register'),
+            
         ]);
     }
 }
