@@ -47,9 +47,9 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     #[Groups(['user:list', 'user:item'])]
     private ?\DateTimeImmutable $createdAt = null;
 
-    #[ORM\Column]
+    #[ORM\Column(nullable: true)]
     #[Groups(['user:list', 'user:item'])]
-    private ?\DateTimeImmutable $updatedAt = null;
+    private ?\DateTime $updatedAt = null;
 
     #[ORM\ManyToOne(inversedBy: 'users')]
     private ?Group $userGroup = null;

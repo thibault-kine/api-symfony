@@ -30,9 +30,9 @@ class Group
     #[Groups(['group:list', 'group:item'])]
     private ?\DateTimeImmutable $createdAt = null;
 
-    #[ORM\Column]
+    #[ORM\Column(nullable: true)]
     #[Groups(['group:list', 'group:item'])]
-    private ?\DateTimeImmutable $updatedAt = null;
+    private ?\DateTime $updatedAt = null;
 
     #[ORM\OneToMany(mappedBy: 'userGroup', targetEntity: User::class)]
     private Collection $users;
