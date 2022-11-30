@@ -2,28 +2,36 @@
 
 namespace App\Entity;
 
+use ApiPlatform\Core\Annotation\ApiFilter;
 use ApiPlatform\Metadata\ApiResource;
-use App\Repository\UserGroupRepository;
+use ApiPlatform\Core\Bridge\Doctrine\Orm\Filter\SearchFilter;
+use App\Repository\GroupRepository;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Serializer\Annotation\Groups;
 
-#[ORM\Entity(repositoryClass: UserGroupRepository::class)]
+#[ORM\Entity(repositoryClass: GroupRepository::class)]
+#[ORM\Table(name: '`group`')]
 #[ApiResource]
-class UserGroup
+class Group
 {
     #[ORM\Id]
     #[ORM\GeneratedValue]
     #[ORM\Column]
+    #[Groups(['group:list', 'group:item'])]
     private ?int $id = null;
 
     #[ORM\Column(length: 255)]
+    #[Groups(['group:list', 'group:item'])]
     private ?string $name = null;
 
     #[ORM\Column]
+    #[Groups(['group:list', 'group:item'])]
     private ?\DateTimeImmutable $createdAt = null;
 
     #[ORM\Column]
+    #[Groups(['group:list', 'group:item'])]
     private ?\DateTimeImmutable $updatedAt = null;
 
     #[ORM\OneToMany(mappedBy: 'userGroup', targetEntity: User::class)]
